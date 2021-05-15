@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  unbscholar.solr.lib.unb.ca:
+    build:
+      context: .
+    restart: always
+    container_name: unbscholar.solr.lib.unb.ca
+    env_file:
+      - ./env/solr.env
+    expose:
+      - "8983"
+    networks:
+      - unbscholar.solr.lib.unb.ca
+
+networks:
+  unbscholar.solr.lib.unb.ca:
+    name: unbscholar.solr.lib.unb.ca
