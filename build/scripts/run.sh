@@ -7,4 +7,6 @@ do
  fi
 done
 
+/opt/docker-solr/scripts/precreate-core initalcore
+
 docker-entrypoint.sh solr-foreground

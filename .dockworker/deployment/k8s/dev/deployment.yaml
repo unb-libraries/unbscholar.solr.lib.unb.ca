@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: solr
+    tier: search
+    appMajor: "8"
+    uri: dev-unbscholar.solr.lib.unb.ca
+  name: unbscholar-solr-lib-unb-ca
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      uri: dev-unbscholar.solr.lib.unb.ca
+  replicas: 1
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: solr
+        tier: search
+        appMajor: "8"
+        uri: dev-unbscholar.solr.lib.unb.ca
+    spec:
+      nodeSelector:
+        deployenv: dev
+      containers:
+        -
+          name: unbscholar-solr-lib-unb-ca
+          readinessProbe:
+            tcpSocket:
+              port: 8983
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+            periodSeconds: 30
+          livenessProbe:
+            tcpSocket:
+              port: 8983
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+            periodSeconds: 30
+          env:
+            -
+              name: SOLR_HOME
+              value: "/solr_home"
+            -
+              name: SOLR_JAVA_MEM
+              value: "-Xms4g -Xmx4g"
+            -
+              name: SOLR_OPTS
+              value: "-Dsolr.lock.type=none"
+          image: "||DEPLOYMENTIMAGE||"
+          imagePullPolicy: Always
+          ports:
+            -
+              containerPort: 8983
+              name: solr
+          volumeMounts:
+            -
+              mountPath: /solr_home
+              name: solr-persistent-storage
+      priorityClassName: dev-high-priority-services
+      restartPolicy: Always
+      volumes:
+        -
+          name: solr-persistent-storage
+          persistentVolumeClaim:
+            claimName: unbscholar-solr-lib-unb-ca
