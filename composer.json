@@ -13,7 +13,7 @@
   "name": "unb-libraries/unbscholar.solr.lib.unb.ca",
   "prefer-stable": true,
   "require-dev": {
-    "unb-libraries/dockworker-solr": "~4"
+    "unb-libraries/dockworker-solr": "^5"
   },
   "scripts": {
     "post-update-cmd": [
