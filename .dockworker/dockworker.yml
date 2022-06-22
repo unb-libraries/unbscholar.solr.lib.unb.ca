@@ -9,14 +9,12 @@ dockworker:
     uuid: 3508
   deployment:
     environments:
-      - dev
       - prod
   github:
     repo: unbscholar.solr.lib.unb.ca
     owner: unb-libraries
   image:
     push_branches:
-      - dev
       - prod
     name: ghcr.io/unb-libraries/unbscholar.solr.lib.unb.ca
     date_tag_image: true
