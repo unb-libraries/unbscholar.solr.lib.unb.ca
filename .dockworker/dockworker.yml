@@ -10,6 +10,9 @@ dockworker:
   deployment:
     environments:
       - prod
+    workflow:
+      source: dockworker
+      type: deployment-workflow
   github:
     repo: unbscholar.solr.lib.unb.ca
     owner: unb-libraries
