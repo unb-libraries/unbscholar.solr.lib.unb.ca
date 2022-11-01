@@ -1,4 +1,4 @@
-FROM solr:8.8
+FROM solr:8.11
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV TZ America/Moncton
