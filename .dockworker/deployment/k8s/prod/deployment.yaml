@@ -28,7 +28,7 @@ spec:
         uri: unbscholar.solr.lib.unb.ca
     spec:
       nodeSelector:
-        deployenv: prod
+        deploy_prod: 'true'
       containers:
         -
           name: unbscholar-solr-lib-unb-ca
