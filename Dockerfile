@@ -4,6 +4,11 @@ MAINTAINER UNB Libraries <libsupport@unb.ca>
 ENV TZ America/Moncton
 COPY build/scripts /scripts
 
+# Silence the verbose logging.
+USER root
+RUN sed -i 's/<Root level="info">/<Root level="error">/' /opt/solr/server/resources/log4j2.xml
+USER $SOLR_UID
+
 ENTRYPOINT ["/scripts/run.sh"]
 
 ARG BUILD_DATE
