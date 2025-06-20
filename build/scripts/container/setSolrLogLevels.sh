@@ -9,8 +9,7 @@ sed -i "s/<AsyncRoot level=\"info\">/<AsyncRoot level=\"$LOG_LEVEL\">/" "$CONFIG
 # Insert the AsyncLogger for org.apache.solr
 INSERTION=$(cat <<EOF
     <AsyncLogger name="org.apache.solr" level="$LOG_LEVEL"/>
-    <AsyncLogger name="org.apache.solr.servlet.HttpSolrCall" level="$LOG_LEVEL"/>
-    <Logger name="org.apache.solr.servlet.HttpSolrCall" level="$LOG_LEVEL"/>
+    <AsyncLogger name="org.apache.solr.servlet.HttpSolrCall" level="off"/>
 EOF
 )
 
