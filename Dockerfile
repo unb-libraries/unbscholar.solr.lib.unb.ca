@@ -2,12 +2,13 @@ FROM solr:8.11
 MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 ENV TZ America/Moncton
+ENV SOLR_LOG_LEVEL="warn"
+
 COPY build/scripts /scripts
 
 # Silence the verbose logging.
 USER root
-RUN sed -i 's/<Root level="info">/<Root level="warn">/' /opt/solr/server/resources/log4j2.xml
-RUN sed -i 's/<AsyncRoot level="info">/<AsyncRoot level="warn">/' /opt/solr/server/resources/log4j2.xml
+RUN /scripts/container/setSolrLogLevels.sh ${SOLR_LOG_LEVEL}
 USER $SOLR_UID
 
 ENTRYPOINT ["/scripts/run.sh"]
