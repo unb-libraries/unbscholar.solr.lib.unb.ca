@@ -7,6 +7,7 @@ sed -i "s/<Root level=\"info\">/<Root level=\"$LOG_LEVEL\">/" "$CONFIG_FILE"
 sed -i "s/<AsyncRoot level=\"info\">/<AsyncRoot level=\"$LOG_LEVEL\">/" "$CONFIG_FILE"
 
 INSERTION=$(cat <<EOF
+    <Logger name="org.apache.solr.servlet.HttpSolrCall" level="$LOG_LEVEL"/>
     <AsyncLogger name="org.apache.solr" level="$LOG_LEVEL"/>
     <AsyncLogger name="org.apache.solr.servlet.HttpSolrCall" level="$LOG_LEVEL"/>
 EOF
