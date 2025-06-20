@@ -22,7 +22,7 @@ awk -v insert="$INSERTION" '
 
 # Remove the AsyncLogger for org.apache.solr.servlet.HttpSolrCall
 awk '
-  /<AsyncLogger name="org.apache.solr.servlet.HttpSolrCall"/ {
+  /<!-- HttpSolrCall/ {
     in_block = 1
     next
   }
