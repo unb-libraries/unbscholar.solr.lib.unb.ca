@@ -1,7 +1,6 @@
-FROM solr:8.11
-MAINTAINER UNB Libraries <libsupport@unb.ca>
+FROM solr:9.8
 
-ENV TZ America/Moncton
+ENV TZ="America/Moncton"
 ENV SOLR_LOG_LEVEL="warn"
 
 COPY build/scripts /scripts
@@ -27,4 +26,5 @@ LABEL ca.unb.lib.generator="solr" \
   org.label-schema.vcs-url="https://github.com/unb-libraries/unbscholar.solr.lib.unb.ca" \
   org.label-schema.vendor="University of New Brunswick Libraries" \
   org.label-schema.version=$VERSION \
+  org.opencontainers.image.authors="libsupport@unb.ca" \
   org.opencontainers.image.source="https://github.com/unb-libraries/unbscholar.solr.lib.unb.ca"

@@ -1,9 +1,9 @@
 services:
-  unbscholar.solr.lib.unb.ca:
+  unbscholar-solr-lib-unb-ca:
     build:
       context: .
     restart: unless-stopped
-    container_name: unbscholar.solr.lib.unb.ca
+    container_name: unbscholar-solr-lib-unb-ca
     env_file:
       - ./env/solr.env
     expose:
