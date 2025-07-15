@@ -11,7 +11,7 @@ dockworker:
     identifiers:
       id: unbscholar.solr.lib.unb.ca
       slug: unbscholar-solr-lib-unb-ca
-      short_slug: drupsolr
+      short_slug: scholarsolr
       uuid: 3508
     framework:
       name: Solr
@@ -42,11 +42,12 @@ dockworker:
       name: unbscholar.solr.lib.unb.ca
     jira:
       project_keys:
-        - IN
+        - SCHOLAR
     image:
       name: ghcr.io/unb-libraries/unbscholar.solr.lib.unb.ca
-      parent: solr:8.4
+      parent: solr:9.8
       repository: GitHub
       push-branches:
         - dev
         - prod
+        - 9.x

@@ -2,6 +2,7 @@ FROM solr:9.8
 
 ENV TZ="America/Moncton"
 ENV SOLR_LOG_LEVEL="warn"
+ENV SOLR_OPTS="-Dsolr.config.lib.enabled=true"
 
 COPY build/scripts /scripts
 
