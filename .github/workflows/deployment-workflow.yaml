@@ -9,7 +9,7 @@ jobs:
   deploy:
     uses: unb-libraries/dockworker/.github/workflows/build-push-deploy-notify.yaml@6.x
     with:
-      branch-env-map: '{"dev":"dev","prod":"prod"}'
+      branch-env-map: '{"dev":"dev","prod":"prod","9.x":"9.x"}'
       build-themes: false
       deploy-branches: '["dev","prod"]'
       image-name: 'ghcr.io/unb-libraries/unbscholar.solr.lib.unb.ca'
