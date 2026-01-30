@@ -1,4 +1,4 @@
-FROM solr:9.8
+FROM solr:9.10
 
 ENV TZ="America/Moncton"
 ENV SOLR_LOG_LEVEL="warn"
@@ -10,6 +10,9 @@ COPY build/scripts /scripts
 USER root
 RUN /scripts/container/setSolrLogLevels.sh ${SOLR_LOG_LEVEL}
 USER $SOLR_UID
+
+VOLUME /var/solr
+RUN mkdir -p /var/solr/data
 
 ENTRYPOINT ["/scripts/run.sh"]
 

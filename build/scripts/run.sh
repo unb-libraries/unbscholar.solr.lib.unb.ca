@@ -7,4 +7,5 @@ do
  fi
 done
 
-docker-entrypoint.sh solr-foreground
+echo "Starting Solr..."
+exec docker-entrypoint.sh solr-foreground
