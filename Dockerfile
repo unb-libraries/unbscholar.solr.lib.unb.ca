@@ -1,6 +1,6 @@
 FROM solr:8.11
 
-ENV TZ America/Moncton
+ENV TZ="America/Moncton"
 ENV SOLR_LOG_LEVEL="warn"
 
 COPY build/scripts /scripts
