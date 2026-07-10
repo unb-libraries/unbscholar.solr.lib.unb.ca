@@ -14,7 +14,6 @@ jobs:
       deploy-branches: '["dev","prod"]'
       image-name: 'ghcr.io/unb-libraries/unbscholar.solr.lib.unb.ca'
       k8s-deployment-name: 'unbscholar-solr-lib-unb-ca'
-      push-branches: '["dev","prod"]'
     secrets:
       KUBE_CONFIG: ${{ secrets.KUBE_CONFIG_DATA }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
